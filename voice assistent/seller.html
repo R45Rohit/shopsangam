@@ -1,0 +1,750 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <title>SmartRetail — Sell with AI</title>
+  <meta name="description" content="Start selling in minutes with AI assistance. Voice-first smart retail for local entrepreneurs." />
+  <link rel="stylesheet" href="seller.css" />
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 1 — SPLASH / BUY OR SELL                  -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen active" id="screen-splash">
+    <div class="splash-logo">🛍️</div>
+    <h1 class="splash-title">SmartRetail<br/><span style="color:var(--saffron)">AI</span></h1>
+    <p class="splash-sub">Your voice-first market.<br/>Shop smart. Sell easy.</p>
+    <div class="splash-cards">
+      <div class="splash-card sell" id="btn-go-sell" role="button" tabindex="0">
+        <span class="splash-card-icon">🏪</span>
+        <div class="splash-card-body">
+          <div class="splash-card-title">Start Selling</div>
+          <div class="splash-card-desc">List products, get customers &amp; grow with AI</div>
+        </div>
+        <span class="splash-card-arrow">→</span>
+      </div>
+      <div class="splash-card buy" id="btn-go-buy" role="button" tabindex="0">
+        <span class="splash-card-icon">🛒</span>
+        <div class="splash-card-body">
+          <div class="splash-card-title">Start Buying</div>
+          <div class="splash-card-desc">Discover local products near you at best prices</div>
+        </div>
+        <span class="splash-card-arrow" style="color:var(--text-muted)">→</span>
+      </div>
+    </div>
+    <p style="margin-top:24px;font-size:12px;color:var(--text-muted)">🔒 Safe &amp; trusted by 2 lakh+ sellers</p>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 2 — LANGUAGE SELECTION                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-language">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-splash">←</button>
+      <span class="top-bar-title">Choose Language</span>
+      <span class="top-bar-step">Step 1 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:9%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">🌐</div>
+      <h2 class="screen-title">अपनी भाषा चुनें</h2>
+      <p class="screen-subtitle">Choose your language to continue<br/>in a way that feels comfortable</p>
+
+      <div class="voice-ribbon">
+        <span class="voice-ribbon-icon">🎙️</span>
+        <span class="voice-ribbon-text">Say your language name aloud</span>
+        <button class="voice-ribbon-btn" id="btn-lang-voice">Speak</button>
+      </div>
+
+      <div class="select-grid cols-3" id="lang-grid">
+        <div class="lang-tile selected" data-lang="en"><span class="lang-script">A</span><span class="lang-name">English</span></div>
+        <div class="lang-tile" data-lang="hi"><span class="lang-script">हिं</span><span class="lang-name">Hindi</span></div>
+        <div class="lang-tile" data-lang="ta"><span class="lang-script">த</span><span class="lang-name">Tamil</span></div>
+        <div class="lang-tile" data-lang="te"><span class="lang-script">తె</span><span class="lang-name">Telugu</span></div>
+        <div class="lang-tile" data-lang="kn"><span class="lang-script">ಕ</span><span class="lang-name">Kannada</span></div>
+        <div class="lang-tile" data-lang="mr"><span class="lang-script">म</span><span class="lang-name">Marathi</span></div>
+        <div class="lang-tile" data-lang="gu"><span class="lang-script">ગ</span><span class="lang-name">Gujarati</span></div>
+        <div class="lang-tile" data-lang="bn"><span class="lang-script">বা</span><span class="lang-name">Bengali</span></div>
+        <div class="lang-tile" data-lang="pa"><span class="lang-script">ਪੰ</span><span class="lang-name">Punjabi</span></div>
+      </div>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">🤖</span>
+        <span>The entire app — including voice commands — will work in your chosen language. <strong>AI will guide you every step!</strong></span>
+      </div>
+
+      <button class="btn-primary" data-next="screen-signup">Continue →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 3 — SIGN-UP                               -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-signup">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-language">←</button>
+      <span class="top-bar-title">Create Account</span>
+      <span class="top-bar-step">Step 2 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:18%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">📱</div>
+      <h2 class="screen-title">Sign Up Free</h2>
+      <p class="screen-subtitle">No email needed. Just your phone number!</p>
+
+      <div class="tab-row">
+        <button class="tab-btn active" id="tab-phone">📱 Phone</button>
+        <button class="tab-btn" id="tab-google">🔵 Google</button>
+      </div>
+
+      <div id="phone-section">
+        <div class="input-group">
+          <span class="input-label">Your Mobile Number</span>
+          <div class="input-row">
+            <select class="input-field" style="width:90px;flex:0 0 90px">
+              <option>🇮🇳 +91</option>
+              <option>🇧🇩 +880</option>
+              <option>🇵🇰 +92</option>
+              <option>🇳🇵 +977</option>
+            </select>
+            <input class="input-field" type="tel" id="phone-input" placeholder="9876543210" maxlength="10" />
+          </div>
+        </div>
+        <button class="btn-primary" id="btn-send-otp">📲 Send OTP</button>
+      </div>
+
+      <div id="otp-section" style="display:none;flex-direction:column;gap:14px">
+        <p style="text-align:center;font-size:14px;color:var(--text-mid)">Enter the 4-digit OTP sent to <strong id="otp-number"></strong></p>
+        <div class="otp-row">
+          <input class="otp-box" type="number" maxlength="1" id="otp1" />
+          <input class="otp-box" type="number" maxlength="1" id="otp2" />
+          <input class="otp-box" type="number" maxlength="1" id="otp3" />
+          <input class="otp-box" type="number" maxlength="1" id="otp4" />
+        </div>
+        <p style="text-align:center;font-size:13px;color:var(--text-muted)">Resend OTP in <span id="otp-timer" style="color:var(--saffron);font-weight:700">30s</span></p>
+        <button class="btn-primary" data-next="screen-seller-type">✅ Verify &amp; Continue</button>
+      </div>
+
+      <div class="divider"><div class="divider-line"></div><span class="divider-text">OR</span><div class="divider-line"></div></div>
+
+      <button class="btn-secondary" id="btn-google-login" data-next="screen-seller-type">
+        <span style="font-size:20px">🔵</span> Continue with Google
+      </button>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">🔒</span>
+        <span><strong>Your data is safe.</strong> We never share your number. OTP expires in 5 minutes.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 4 — SELLER TYPE                           -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-seller-type">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-signup">←</button>
+      <span class="top-bar-title">Who Are You?</span>
+      <span class="top-bar-step">Step 3 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:27%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">👤</div>
+      <h2 class="screen-title">What kind of seller are you?</h2>
+      <p class="screen-subtitle">AI will help you set up the right way based on your business type</p>
+
+      <div class="select-grid cols-2" id="seller-type-grid">
+        <div class="select-card" data-type="local-shop">
+          <span class="select-icon">🏪</span>
+          <span class="select-label">Local Shop Owner</span>
+          <span class="select-sub">Grocery, Clothing, Hardware etc.</span>
+        </div>
+        <div class="select-card" data-type="home-business">
+          <span class="select-icon">🏠</span>
+          <span class="select-label">Home Business</span>
+          <span class="select-sub">Tiffin, Pickles, Stitching etc.</span>
+        </div>
+        <div class="select-card" data-type="artisan">
+          <span class="select-icon">🎨</span>
+          <span class="select-label">Handmade Artisan</span>
+          <span class="select-sub">Craft, Pottery, Jewellery etc.</span>
+        </div>
+        <div class="select-card" data-type="small-retailer">
+          <span class="select-icon">📦</span>
+          <span class="select-label">Small Retailer</span>
+          <span class="select-sub">Wholesale, Reselling etc.</span>
+        </div>
+      </div>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">✨</span>
+        <span><strong>AI picks the best template</strong> for your shop based on what you select — including product categories and pricing suggestions!</span>
+      </div>
+
+      <button class="btn-primary" data-next="screen-shop-setup">Next →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 5 — SHOP SETUP                            -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-shop-setup">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-seller-type">←</button>
+      <span class="top-bar-title">Set Up Your Shop</span>
+      <span class="top-bar-step">Step 4 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:36%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">🏗️</div>
+      <h2 class="screen-title">Let's build your shop!</h2>
+      <p class="screen-subtitle">Only 3 simple details needed. AI fills the rest!</p>
+
+      <div class="input-group">
+        <span class="input-label">Shop Name 🏪</span>
+        <div class="input-row">
+          <input class="input-field" type="text" id="shop-name" placeholder="e.g. Meena's Tiffin" />
+          <button class="voice-ribbon-btn" id="btn-shopname-voice" style="padding:0 14px;border-radius:var(--r)">🎙️</button>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Location 📍</span>
+        <div class="location-row" id="detect-location">
+          <span class="location-icon">📍</span>
+          <div style="flex:1">
+            <div class="location-text" id="location-text">Tap to detect automatically</div>
+            <div class="location-sub">AI will find nearby customers for you</div>
+          </div>
+          <span class="location-detect">Auto-detect</span>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Product Category 🗂️</span>
+        <select class="input-field" id="shop-category">
+          <option value="">Select Category...</option>
+          <option>🥗 Food &amp; Homemade</option>
+          <option>👗 Clothing &amp; Fashion</option>
+          <option>🎨 Handicraft &amp; Art</option>
+          <option>🛒 Grocery &amp; Daily Needs</option>
+          <option>💍 Jewellery &amp; Accessories</option>
+          <option>🧴 Beauty &amp; Wellness</option>
+          <option>📚 Books &amp; Stationery</option>
+          <option>⚙️ Hardware &amp; Tools</option>
+          <option>🌱 Plants &amp; Nursery</option>
+          <option>📦 General &amp; Mixed</option>
+        </select>
+      </div>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">🤖</span>
+        <span>AI detected you are near <strong>Koramangala, Bengaluru</strong>. Your shop will be visible to <strong>2,340 nearby buyers!</strong></span>
+      </div>
+
+      <button class="btn-primary" data-next="screen-dashboard">🚀 Launch My Shop!</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 6 — SELLER DASHBOARD                      -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-dashboard">
+    <div class="top-bar">
+      <span class="top-bar-title" style="font-size:20px">👋 Welcome, Meena!</span>
+      <div style="display:flex;align-items:center;gap:8px">
+        <span style="font-size:13px;color:var(--saffron-dark);font-weight:700;background:rgba(255,107,53,0.1);padding:4px 10px;border-radius:999px">🟢 LIVE</span>
+      </div>
+    </div>
+    <div class="screen-body" style="gap:18px">
+
+      <div class="stat-row">
+        <div class="stat-chip">
+          <div class="stat-chip-val">12</div>
+          <div class="stat-chip-label">Products</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-val">₹4.2K</div>
+          <div class="stat-chip-label">Today's Sales</div>
+        </div>
+        <div class="stat-chip">
+          <div class="stat-chip-val">8</div>
+          <div class="stat-chip-label">Orders</div>
+        </div>
+      </div>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">💡</span>
+        <span><strong>AI Tip:</strong> Idli is trending near you today! Add it to your menu to get 3x more orders. 🔥</span>
+      </div>
+
+      <div class="dashboard-grid">
+        <div class="dash-tile highlight" id="btn-dash-add" data-next="screen-add-product">
+          <span class="dash-tile-icon">➕</span>
+          <span class="dash-tile-label">Add Product</span>
+          <span class="dash-tile-sub">List a new item</span>
+        </div>
+        <div class="dash-tile" id="btn-dash-demand" data-next="screen-demand">
+          <span class="dash-tile-icon">📊</span>
+          <span class="dash-tile-label">Customer Demand</span>
+          <span class="dash-tile-sub">What buyers want</span>
+        </div>
+        <div class="dash-tile" id="btn-dash-messages" data-next="screen-messages">
+          <span class="dash-tile-icon">💬</span>
+          <span class="dash-tile-label">Messages</span>
+          <span class="dash-tile-sub" id="msg-badge">3 new</span>
+        </div>
+        <div class="dash-tile" id="btn-dash-tips" data-next="screen-tips">
+          <span class="dash-tile-icon">🤖</span>
+          <span class="dash-tile-label">AI Tips</span>
+          <span class="dash-tile-sub">Grow faster</span>
+        </div>
+      </div>
+
+      <button class="btn-secondary" style="margin-top:4px" data-next="screen-demand">📈 View Trends in My Area</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 7 — ADD PRODUCT                           -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-add-product">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-dashboard">←</button>
+      <span class="top-bar-title">Add Product</span>
+      <span class="top-bar-step">Step 6 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:54%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">📸</div>
+      <h2 class="screen-title">Show your product</h2>
+      <p class="screen-subtitle">Take a photo or describe it with your voice — AI does the rest!</p>
+
+      <div class="tab-row">
+        <button class="tab-btn active" id="add-tab-photo">📷 Photo</button>
+        <button class="tab-btn" id="add-tab-voice">🎙️ Voice</button>
+        <button class="tab-btn" id="add-tab-manual">✏️ Type</button>
+      </div>
+
+      <!-- Photo Tab -->
+      <div id="panel-photo">
+        <div class="photo-upload" id="photo-upload-area">
+          <span class="photo-upload-icon">📷</span>
+          <span class="photo-upload-text">Tap to take a photo<br/>or pick from gallery</span>
+          <span class="photo-upload-sub">AI will identify your product instantly!</span>
+          <input type="file" accept="image/*" capture="environment" id="product-photo" style="display:none" />
+        </div>
+        <div class="ai-nudge" style="margin-top:0">
+          <span class="ai-nudge-icon">🤖</span>
+          <span>Just one clear photo is enough. <strong>AI will automatically name your product, suggest a category and recommend a price!</strong></span>
+        </div>
+      </div>
+
+      <!-- Voice Tab -->
+      <div id="panel-voice" style="display:none">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:16px;padding:20px 0">
+          <button class="mic-big" id="btn-voice-describe">🎙️</button>
+          <p class="mic-label" id="voice-desc-label">Tap &amp; describe your product<br/>in your language</p>
+          <div id="voice-transcript" style="background:var(--cream2);border-radius:var(--r);padding:14px;font-size:14px;color:var(--text-body);width:100%;min-height:60px;font-style:italic;display:none"></div>
+        </div>
+      </div>
+
+      <!-- Manual Tab -->
+      <div id="panel-manual" style="display:none">
+        <div class="input-group">
+          <span class="input-label">Product Name</span>
+          <input class="input-field" type="text" placeholder="e.g. Homemade Mango Pickle" />
+        </div>
+        <div class="input-group" style="margin-top:12px">
+          <span class="input-label">Description</span>
+          <textarea class="input-field" rows="3" placeholder="Describe your product..."></textarea>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="btn-analyze-product" data-next="screen-ai-identify">🤖 Analyze with AI →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 8 — AI PRODUCT IDENTIFICATION             -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-ai-identify">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-add-product">←</button>
+      <span class="top-bar-title">AI Identified!</span>
+      <span class="top-bar-step">Step 7 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:63%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">🤖</div>
+      <h2 class="screen-title">AI filled this for you!</h2>
+      <p class="screen-subtitle">Review and edit if needed, then confirm</p>
+
+      <div class="ai-suggestion-card">
+        <div class="ai-suggestion-header">
+          <span>✨</span> AI Suggestion — 96% Confidence
+        </div>
+
+        <div class="ai-field">
+          <span class="ai-field-label">PRODUCT NAME</span>
+          <div class="ai-field-value">
+            <input style="border:none;outline:none;font-size:15px;font-weight:600;flex:1;font-family:var(--font);color:var(--text-dark);background:transparent" value="Homemade Mango Pickle (Aam ka Achar)" id="ai-prod-name" />
+            <span class="edit-inline">Edit</span>
+          </div>
+        </div>
+
+        <div class="ai-field">
+          <span class="ai-field-label">CATEGORY</span>
+          <div class="ai-field-value">
+            🥗 Food &amp; Homemade <span class="edit-inline">Change</span>
+          </div>
+        </div>
+
+        <div class="ai-field">
+          <span class="ai-field-label">DESCRIPTION</span>
+          <div class="ai-field-value" style="flex-direction:column;align-items:flex-start;gap:6px">
+            <span>Traditional Indian mango pickle made with fresh raw mangoes, mustard oil &amp; home spices. No preservatives.</span>
+            <span class="edit-inline">Edit</span>
+          </div>
+        </div>
+
+        <div class="ai-field">
+          <span class="ai-field-label">SUGGESTED PRICE (₹)</span>
+          <div class="ai-field-value">
+            <input style="border:none;outline:none;font-size:20px;font-weight:800;width:80px;font-family:var(--font-display);color:var(--saffron-dark);background:transparent" value="120" id="ai-prod-price" type="number" />
+            <span style="color:var(--text-muted);font-size:13px">per 250g</span>
+          </div>
+        </div>
+
+        <div class="ai-field">
+          <span class="ai-field-label">QUANTITY AVAILABLE</span>
+          <div class="ai-field-value">
+            <input style="border:none;outline:none;font-size:18px;font-weight:700;width:60px;font-family:var(--font-display);color:var(--text-dark);background:transparent" value="25" id="ai-prod-qty" type="number" />
+            <span style="color:var(--text-muted);font-size:13px">units</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">💡</span>
+        <span>AI compared <strong>47 similar products</strong> in your area and set a competitive price for you.</span>
+      </div>
+
+      <button class="btn-primary btn-green" data-next="screen-pricing">✅ Confirm &amp; Set Price →</button>
+      <button class="btn-secondary" data-back="screen-add-product" style="margin-top:0">↩ Re-take Photo</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 9 — AI PRICING GUIDANCE                   -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-pricing">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-ai-identify">←</button>
+      <span class="top-bar-title">Smart Pricing</span>
+      <span class="top-bar-step">Step 8 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:72%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">💰</div>
+      <h2 class="screen-title">What others charge nearby</h2>
+      <p class="screen-subtitle">AI scanned 12 sellers within 5km of your location</p>
+
+      <div class="card">
+        <div class="price-row">
+          <span class="price-shop">🏪 Sharma Kirana Store</span>
+          <span class="price-tag high">₹150</span>
+        </div>
+        <div class="price-row">
+          <span class="price-shop">🏠 Sunita Home Foods</span>
+          <span class="price-tag mid">₹130</span>
+        </div>
+        <div class="price-row">
+          <span class="price-shop">🎨 Priya Artisanal Pickles</span>
+          <span class="price-tag mid">₹125</span>
+        </div>
+        <div class="price-row">
+          <span class="price-shop">📦 Quick Bazaar</span>
+          <span class="price-tag low">₹95</span>
+        </div>
+        <div class="price-row">
+          <span class="price-shop">🛒 Local Mandi</span>
+          <span class="price-tag low">₹90</span>
+        </div>
+      </div>
+
+      <div class="optimal-price-box">
+        <div class="optimal-price-label">🤖 AI Optimal Price for You</div>
+        <div class="optimal-price-value">₹120</div>
+        <div class="optimal-price-reason">This price is 20% below average and will attract more first-time buyers while keeping your profit healthy</div>
+      </div>
+
+      <div class="input-group">
+        <span class="input-label">Your Final Price (₹) — Edit if you want</span>
+        <input class="input-field" type="number" value="120" id="final-price" style="font-size:22px;font-weight:700;text-align:center" />
+      </div>
+
+      <button class="btn-primary btn-green" data-next="screen-live">🟢 Go Live Now! →</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 10 — PRODUCT LIVE CONFIRMATION            -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-live">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-pricing">←</button>
+      <span class="top-bar-title">Your Product is Live!</span>
+      <span class="top-bar-step">Step 9 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:81%"></div></div>
+    <div class="screen-body" style="align-items:center;text-align:center">
+      <div style="width:100%">
+        <div class="live-confirm-card">
+          <div class="live-anim">🎉</div>
+          <div class="live-headline">Product is Live!</div>
+          <div class="live-sub" style="color:var(--green-light)">Nearby customers can now see &amp; order from you</div>
+          <div style="margin-top:10px"><span class="live-badge"><span class="live-dot"></span> LIVE NOW</span></div>
+        </div>
+
+        <div class="card" style="margin-top:16px;text-align:center">
+          <div class="customer-counter" id="customer-counter">2,340</div>
+          <div class="counter-label">Customers within 3km can see your product</div>
+        </div>
+
+        <div class="card" style="margin-top:14px;text-align:left">
+          <div class="section-label" style="margin-bottom:12px">📦 Your Product Summary</div>
+          <div class="price-row">
+            <span class="price-shop">Product</span>
+            <span style="font-weight:600">Mango Pickle</span>
+          </div>
+          <div class="price-row">
+            <span class="price-shop">Price</span>
+            <span class="price-tag mid">₹120 / 250g</span>
+          </div>
+          <div class="price-row">
+            <span class="price-shop">Qty Listed</span>
+            <span style="font-weight:600">25 units</span>
+          </div>
+          <div class="price-row">
+            <span class="price-shop">Visible to</span>
+            <span style="font-weight:600;color:var(--green-mid)">2,340 customers</span>
+          </div>
+        </div>
+
+        <button class="btn-primary" style="margin-top:16px" data-next="screen-dashboard">🏪 Back to Dashboard</button>
+        <button class="btn-secondary" style="margin-top:10px" data-next="screen-add-product">➕ Add Another Product</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 11 — CUSTOMER DEMAND ALERTS               -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-demand">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-dashboard">←</button>
+      <span class="top-bar-title">Customer Demand</span>
+      <span class="top-bar-step">Step 10 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:90%"></div></div>
+    <div class="screen-body">
+      <div class="screen-icon">📊</div>
+      <h2 class="screen-title">What buyers want near you</h2>
+      <p class="screen-subtitle">Updated every hour • 5km radius from your shop</p>
+
+      <div class="ai-nudge">
+        <span class="ai-nudge-icon">🔥</span>
+        <span><strong>3 trending items</strong> that you can sell profitably right now in your area!</span>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div class="demand-card">
+          <span class="demand-emoji">🥗</span>
+          <div class="demand-info">
+            <div class="demand-title">Homemade Tiffin</div>
+            <div class="demand-sub">248 searches in last 24 hours</div>
+          </div>
+          <span class="demand-badge hot">🔥 Very Hot</span>
+        </div>
+        <div class="demand-card">
+          <span class="demand-emoji">🥭</span>
+          <div class="demand-info">
+            <div class="demand-title">Fresh Mango Products</div>
+            <div class="demand-sub">187 searches • You sell this! ✅</div>
+          </div>
+          <span class="demand-badge">🚀 Trending</span>
+        </div>
+        <div class="demand-card">
+          <span class="demand-emoji">🌿</span>
+          <div class="demand-info">
+            <div class="demand-title">Organic Spice Mixes</div>
+            <div class="demand-sub">112 searches near you</div>
+          </div>
+          <span class="demand-badge">📈 Rising</span>
+        </div>
+        <div class="demand-card">
+          <span class="demand-emoji">🧁</span>
+          <div class="demand-info">
+            <div class="demand-title">Fresh Bakery Items</div>
+            <div class="demand-sub">98 searches near you</div>
+          </div>
+          <span class="demand-badge">⭐ Popular</span>
+        </div>
+        <div class="demand-card">
+          <span class="demand-emoji">🛍️</span>
+          <div class="demand-info">
+            <div class="demand-title">Handmade Gift Hampers</div>
+            <div class="demand-sub">76 searches • Festival season</div>
+          </div>
+          <span class="demand-badge">🎁 Seasonal</span>
+        </div>
+      </div>
+
+      <button class="btn-primary" data-next="screen-add-product">➕ List a Trending Product →</button>
+      <button class="btn-secondary" data-next="screen-dashboard" style="margin-top:0">← Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 12 — CUSTOMER MESSAGES                    -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-messages">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-dashboard">←</button>
+      <span class="top-bar-title">Customer Messages</span>
+      <span class="top-bar-step">Step 11 of 11</span>
+    </div>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:100%"></div></div>
+    <div class="screen-body">
+      <div class="chat-messages">
+
+        <p class="section-label" style="text-align:center">Today, 10:32 AM</p>
+
+        <div class="chat-bubble-row">
+          <div class="chat-avatar">👩</div>
+          <div>
+            <div class="chat-bubble them">Namaste! Is the mango pickle available? I need 2 bottles for gifting 🎁</div>
+            <div class="chat-time">10:32 AM</div>
+          </div>
+        </div>
+
+        <div class="chat-bubble-row me">
+          <div>
+            <div class="chat-bubble me">Namaste! Yes, it's available 😊 I have 25 units. ₹120 per bottle (250g). Freshly made this week!</div>
+            <div class="chat-time" style="text-align:right">10:34 AM</div>
+          </div>
+          <div class="chat-avatar">🏪</div>
+        </div>
+
+        <div class="chat-bubble-row">
+          <div class="chat-avatar">👩</div>
+          <div>
+            <div class="chat-bubble them">Wonderful! Can you deliver near Koramangala 5th Block?</div>
+            <div class="chat-time">10:35 AM</div>
+          </div>
+        </div>
+
+        <div class="chat-bubble-row">
+          <div class="chat-avatar">👦</div>
+          <div>
+            <div class="chat-bubble them" style="margin-top:8px">Hi, I want to order 5 bottles. Do you offer bulk discount?</div>
+            <div class="chat-time">11:10 AM — Rajesh Kumar</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="ai-nudge" style="margin-top:8px">
+        <span class="ai-nudge-icon">🤖</span>
+        <span><strong>AI Reply Suggestion:</strong> "Yes, for 5+ bottles I can give 10% off! Total would be ₹540. Want me to confirm your order?"</span>
+      </div>
+
+      <div style="background:var(--white);border:1.5px solid var(--glass-border);border-radius:var(--r-lg);padding:12px 14px">
+        <div style="display:flex;gap:10px;align-items:flex-end">
+          <textarea class="input-field" rows="2" placeholder="Type your reply..." style="flex:1;resize:none;padding:10px 12px;font-size:14px"></textarea>
+          <button class="chat-voice-reply" id="btn-voice-reply" title="Voice Reply">🎙️</button>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+          <button class="voice-ribbon-btn" style="font-size:12px">✅ Use AI Reply</button>
+          <button class="voice-ribbon-btn" style="background:var(--green-mid);font-size:12px">📤 Send</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════ -->
+  <!--  SCREEN 13 — AI BUSINESS TIPS                     -->
+  <!-- ═══════════════════════════════════════════════════ -->
+  <div class="screen" id="screen-tips">
+    <div class="top-bar">
+      <button class="back-btn" data-back="screen-dashboard">←</button>
+      <span class="top-bar-title">AI Business Tips</span>
+    </div>
+    <div class="screen-body">
+      <div class="screen-icon">🚀</div>
+      <h2 class="screen-title">Grow Your Business</h2>
+      <p class="screen-subtitle">Personalized advice from AI based on your shop activity</p>
+
+      <div style="display:flex;flex-direction:column;gap:14px">
+        <div class="tip-card">
+          <div class="tip-icon-wrap" style="background:rgba(255,107,53,0.12)">📸</div>
+          <div class="tip-body">
+            <div class="tip-title">Add better product photos</div>
+            <div class="tip-desc">Products with 3+ photos get <strong>4x more clicks</strong>. Natural light photos work best!</div>
+            <span class="tip-action" data-next="screen-add-product">Add Photos →</span>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap" style="background:rgba(27,67,50,0.1)">📦</div>
+          <div class="tip-body">
+            <div class="tip-title">List at least 5 products</div>
+            <div class="tip-desc">Shops with 5+ products earn <strong>8x more</strong> than shops with 1 product on average.</div>
+            <span class="tip-action" data-next="screen-add-product">Add Products →</span>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap" style="background:rgba(255,209,102,0.2)">⏰</div>
+          <div class="tip-body">
+            <div class="tip-title">Reply to customers fast</div>
+            <div class="tip-desc">Customers who get a reply in under 10 minutes are <strong>70% more likely to buy</strong>.</div>
+            <span class="tip-action" data-next="screen-messages">View Messages →</span>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap" style="background:rgba(34,197,94,0.12)">🌊</div>
+          <div class="tip-body">
+            <div class="tip-title">Ride the Tiffin trend</div>
+            <div class="tip-desc">Homemade tiffin is the <strong>#1 demand</strong> in your area right now. Add it today!</div>
+            <span class="tip-action" data-next="screen-demand">See Demand →</span>
+          </div>
+        </div>
+
+        <div class="tip-card">
+          <div class="tip-icon-wrap" style="background:rgba(59,130,246,0.1)">🏷️</div>
+          <div class="tip-body">
+            <div class="tip-title">Offer a weekend special price</div>
+            <div class="tip-desc">Sellers who run a weekend offer see <strong>2x orders on Saturday &amp; Sunday</strong>.</div>
+            <span class="tip-action">Set Weekend Price →</span>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-primary" data-next="screen-dashboard" style="margin-top:8px">🏪 Back to Dashboard</button>
+    </div>
+  </div>
+
+  <!-- Floating AI Voice Assistant -->
+  <button class="float-voice" id="float-voice-btn" title="Voice Assistant">🎙️</button>
+
+</div><!-- /app -->
+
+<script src="seller.js"></script>
+</body>
+</html>
